@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sv-SE" dir="ltr">
+<head>
+<title>halt&amp; { catch: FIRE; }</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Kod som orsakar seriös &amp; allvarlig skada och/eller raderar känsliga filer på olika system.">
+<meta name="keywords" content="Skadlig. Kod. Systemkrash. Windows. Linux. macOS. Terminal. bash. zsh.">
+<link rel="shortcut icon" href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAiWAAAIlgE7vdG5AAAA
+GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABT1JREFUWIXtlntsU1Ucx7/n3tPb
+ro9t7djWsdGxjcE22cIGhmxG3MyIZMbwh2GJCRBFIz4gEYOKEXUYFjEiRgmCwUjwAQmKYCQz8kgQ
+YYoZm8BwbC0wWAd7d33c9rY99x7/QHCTAd1g4R9+/517fo/P73VzgPtyj0W82w6TK1cVW+zTNbmj
+QY5Fn961yOU1Bpsem3jQo3bXb3k+VjNyN2InPl67hKjsbcnb+VbU4mjnklhEWMBoc/k2uVwbw7ey
+veMWpJavrFQlw3efix3x00WUHmPIo7KnU/T3/NLRvPXK7eyFOwV47IHCpjfmzzxebNGR0njJsNXj
+eqrF05i7t//kF84ps+PHFSD+idoV+885d2VnO65UdosN87RcW5YW7OqMKE+nCLrZSVRXdzsfY56B
+xKq1cwQWWjWwv7aqd9o0i0uNP0gFsaTV3ytWmBKIzWQF50AkHFqQ2Fr//c38jKkCbQUPv1DVe2ad
+2NlWvQsQGwO8scXfP4MqfjrHYCIWvQkAQAigPliyndfU3HTbRrWG3VPKcjS97pBZIJkveduX72j7
+PVAN4AeudlUazVMAgIBARyVoFjPk91ZDX1ps7Dp09DSA/LEkCwDggODJf2hrsLBCDRSWc3furC1D
+7zuyZ+ReyipSLmUVcXfODN7/8Tbu8SncG2Tcp6i8Z0Dm7c++WjyS75ha0JEzcw0V6XNRlQke2bM7
+3dnw4tD7Sef/cgL4iE+dBt2Bn0GXLkKIAUQgCCkMXYMRsJmzD4wZoH750rk9Yb/sDXmPMs27kAD8
+/zrUllnrW/1ulCfZQAQCg0FE70AQV/pkmI7/iZQ9e5L6C8qeucFupICtHcF0q0VYYzLo96oE1OcL
+JbaBryncvGFLcmu7MpLNxBM/BVsaF6zvSpv4JhUFqJoG2tWN9C+3wdxw4mq2orSRo/xrgsPsmt31
+Nbx8mRvDYnAx5dynaFqJNSHuEYmSCAD4/JHOjAnG6liq1fzjkW6Wl5diqauDfecuCOGrf2KNaxCI
+ACWqfGP9+9iiGwCcbv9hSkmWJIkypSQap6cBjXFJI1BVpg2EgnjdYdc33w6gZd2mMsO+uoO00x1n
+NVshCiKiahRRFoFRbwLnGg9yXjDh9OGzwJAZYJxPTUrQd8ZHLiUZ/U6HqnEKcE5FotJwf1z8b0tS
+Y6lA/qqX66nbvY6DwxvygXMOnaiDQYq7mjERiKhGd1zTvw4g6XQb+7wK6eN2OaCQhMGerkIiCCyo
+sIQwU6dH0h9dHAsAAChU/gCAU1UZPLIHSkSBpmmIsihkJcDlUGDfDQA59rj3s+2WUkJ1n+nPf9vK
+VBgYCxsl117F0rTWFt/0yc5YAXJdrjBAlgGAqqnwK354ZA8Gg4PtcjQ0N+PCyXeu6Q7bAmWDbZ5+
+gnGD6krNV5LL8vxhh2Pi2fVWMug+rnJ2PlYAAHBcOLn/YlbRbgI8CUDmBOv1Mj60d58a9lIaBkCI
+UKFuts+HBpLW9hrUnkEu6AWwMDtFTeIsAG2jgaCCtoJxoZmrus8nXzwx4ttgGIBAaT8RhVc44Q1I
+S4PImI31+f2iUTdHsNqWAd2jiY/0c80dAGpuCTn0QHRCmaAXJR7VSqFPBWwKRGqwENn7B6k+ExlV
+9Bjl+hCGP7UVCJRUYZIDJCWFwJwJGFNBTEZAQAX/KtU0rgCSWUomItHBYAcySwAeAWyTAVsGYDI7
+oOpWjgfAfy2QzE2IKr2IsmQYMv79SADBBwRkADCMKwBZ6PLx7RnFcLdUQTQuADVYAPjR5zwGrv2K
+i+4j4wFwX+65/AOFMzXDH0qP9AAAAABJRU5ErkJggg==">
+<style>
+body {background-color: #3b0f04;}
+.countdown-timer {
+font-family: system-ui, Arial, sans-serif;
+display: grid;
+gap: 15px;
+align-items: stretch;
+justify-items: center;
+grid-auto-rows: 1fr;
+grid-template-columns: repeat(4, minmax(80px, 1fr));
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 8px;
+box-sizing: border-box;
+}
+@media (max-width: 768px) {
+.countdown-timer {
+grid-template-columns: repeat(2, minmax(80px, 1fr));
+max-width: 520px;
+}}
+@media (max-width: 400px) {
+.countdown-timer {
+grid-template-columns: 1fr;
+gap: 10px;
+padding: 6px;
+max-width: 320px;
+}}
+.time-box {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: #4e1303;
+color: white;
+padding: 15px 20px;
+border-radius: 12px;
+min-width: 80px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+width: 100%;
+box-sizing: border-box;
+}
+.num {
+font-size: clamp(1.5rem, 4vw, 2rem);
+font-weight: 700;
+line-height: 1;
+margin-bottom: 5px;
+}
+.label {
+font-size: clamp(0.65rem, 1.6vw, 0.75rem);
+text-transform: uppercase;
+letter-spacing: 1px;
+opacity: 0.9;
+}
+.countdown-timer > h2 {color: #FFF}
+</style>
+</head>
+<body>
+<div class="countdown-timer">
+<div class="time-box">
+<span class="num" id="dagar">00</span>
+<span class="label">Dagar</span>
+</div>
+<div class="time-box">
+<span class="num" id="timmar">00</span>
+<span class="label">Timmar</span>
+</div>
+<div class="time-box">
+<span class="num" id="minuter">00</span>
+<span class="label">Minuter</span>
+</div>
+<div class="time-box">
+<span class="num" id="sekunder">00</span>
+<span class="label">Sekunder</span>
+</div>
+</div>
+<script>
+const wrapper = document.querySelector(".countdown-timer");
+const d = document.getElementById("dagar");
+const h = document.getElementById("timmar");
+const m = document.getElementById("minuter");
+const s = document.getElementById("sekunder");
+const startTime = new Date(2026, 0, 23, 23, 59, 59).getTime();
+const endTime = new Date(2026, 1, 28, 23, 59, 59).getTime();
+function updateFromRemaining(totalSeconds) {
+if (totalSeconds < 0) totalSeconds = 0;
+const days = Math.floor(totalSeconds / 86400);
+totalSeconds %= 86400;
+const hours = Math.floor(totalSeconds / 3600);
+totalSeconds %= 3600;
+const mins = Math.floor(totalSeconds / 60);
+const secs = totalSeconds % 60;
+d.innerText = days < 10 ? "0" + days : String(days);
+h.innerText = hours < 10 ? "0" + hours : String(hours);
+m.innerText = mins < 10 ? "0" + mins : String(mins);
+s.innerText = secs < 10 ? "0" + secs : String(secs);
+}
+function showReplacement() {
+while (wrapper.firstChild) wrapper.removeChild(wrapper.firstChild);
+const h2 = document.createElement("h2");
+h2.textContent = "Live om 5 min";
+wrapper.appendChild(h2);
+}
+function tick() {
+const now = Date.now();
+if (now < startTime) {
+const secondsUntilStart = Math.floor((startTime - now) / 1000);
+updateFromRemaining(secondsUntilStart);
+return;
+}
+if (now >= endTime) {
+clearInterval(timer);
+showReplacement();
+return;
+}
+const secondsUntilEnd = Math.floor((endTime - now) / 1000);
+if (secondsUntilEnd <= 0) {
+clearInterval(timer);
+showReplacement();
+return;
+}
+updateFromRemaining(secondsUntilEnd);
+}
+tick();
+const timer = setInterval(tick, 1000);
+</script>
+</body>
+</html>
