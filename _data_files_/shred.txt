@@ -1,0 +1,43 @@
+**Varför är skit samma och din ensak**, och som du säkert förstår så gör du allt på **egen risk**. Kommandot `sudo rm -rf` följt av den fil alternativt sökvägen till den filen / filerna som ska raderas är allt du behöver veta.
+
+**FYI:** sudo kommandot kräver ditt lösenord.
+
+**INFO:** rm rf innebär en bypass vilket innebär att du hoppar över papperskorgen vilket innebär att du inte kan återställa det du raderat.
+
+**Så, nu skiter vi i moral och etik.**
+
+- Radera hela cache-mappen:  
+  `sudo rm -rf ~/Library/Caches/*`
+
+- Radera preferenser för specifika applikationer:
+  `sudo rm ~/Library/Preferences/com.example.applikation_name.plist`
+
+- radera hela användarmappen:
+	`sudo rm -rf ~/Users/[Användarnamn]`
+- radera delade resurser:
+	`sudo rm -rf ~/Users/Shared/*`
+- radera alla loggar mm från Terminalen:
+	`sudo rm -rf ~/.zsh_sessions`
+- radera all Terminal histrorik:
+	rm -rf ~/.zsh_history
+ 
+## Det bästa på en Linux maskin
+är att radera just den allocation på boot som innehåller krypteringsnyckeln. Är den borta så kommer diskens innehåll aldrig att kunna återskapas.
+
+## Annan rolig info:
+
+`diskutil unmountDisk /dev/disk`
+
+eller: `diskutil unmountDisk /force /dev/disk`
+
+`diskutil eraseDisk APFS Raderad /dev/disk2`
+
+`diskutil secureErase 4 /dev/disk2`
+
+X = enhetens beteckning
+`dd if=/dev/urandom of=/dev/sdX bs=1M`
+
+`shred -n Y -vf /dev/sdX`
+
+
+**Ha så kul!**
